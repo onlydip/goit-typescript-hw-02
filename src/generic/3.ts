@@ -3,8 +3,17 @@
   Використовуйте generics, щоб вказати, що ці об'єкти можуть бути будь-якого типу.
 */
 
-function merge (objA, objB) {
-  return Object.assign(objA, objB);
+
+
+function merge<T, U>(objA: T, objB: U): T & U {
+  return { ...objA, ...objB };
 }
+
+
+const obj1 = { name: 'Max' };
+const obj2 = { age: 30 };
+const result = merge(obj1, obj2);
+
+console.log(result);
 
 export {}
