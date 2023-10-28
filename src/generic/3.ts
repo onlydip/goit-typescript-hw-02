@@ -5,15 +5,9 @@
 
 
 
-function merge<T, U>(objA: T, objB: U): T & U {
-  return { ...objA, ...objB };
+function merge<T extends object, U extends object>(objA: T, objB: U): T & U {
+  return Object.assign(objA, objB);
 }
 
-
-const obj1 = { name: 'Max' };
-const obj2 = { age: 30 };
-const result = merge(obj1, obj2);
-
-console.log(result);
 
 export {}
